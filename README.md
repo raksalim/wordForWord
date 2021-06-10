@@ -16,5 +16,7 @@ Copy and paste this into your terminal in the directory you want this applicatio
 Option 1: just double click `index.html` in your finder/files
 
 Option 2: 
+```
 Step 1: navigate to wordForWord Directory
-Step 2: run `open index.html`
+Step 2: Interminal run `open index.html`
+```
