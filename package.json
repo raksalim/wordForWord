@@ -1,0 +1,23 @@
+{
+  "name": "wordforword",
+  "version": "1.0.0",
+  "description": "A writing application that only allows you to write one word at a time. You may only see what you have written after are done or have achieved your goal.",
+  "main": "script.js",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raksalim/wordForWord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raksalim/wordForWord/issues"
+  },
+  "homepage": "https://github.com/raksalim/wordForWord#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Word For Word</title>
+</head>
+
+<body>
+    <header>
+        <h1>Word for Word</h1>
+        <h5>Click anywhere and just start writting</h5>
+        <h5>Full Screen for best writting experience :)</h5>
+    </header>
+
+    <main id="page-container">
+
+        <section id="content-wrap">
+
+            <input id="main-input" class = "center-input" type="text">
+            
+            <p id="written"></p>
+            <section class="control-buttons">
+                <button id="hide-written" class="btn btn-outline-primary" style="visibility: hidden;">Hide Written</button>
+                <button id="download-button" class="btn btn-outline-success" style="visibility: hidden;">Download</button>
+            </section>
+            
+        </section>
+
+
+        <footer id="footer">
+            <h5 id="word-count">Word Count: 0</h5>
+            <button id="done-button" class="center-input btn btn-outline-secondary">Show Written</button>
+        </footer>
+    </main>
+
+</body>
+
+</html>
+<script src="./script.js"></script>
