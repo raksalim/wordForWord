@@ -6,9 +6,7 @@ A writing application that only allows you to write one word at a time. You may 
 Copy and paste this into your terminal in the directory you want this application to live in
 
   ```
-  git clone https://github.com/raksalim/wordForWord.git; 
-  cd wordForWord; 
-  sh run.sh;
+  git clone https://github.com/raksalim/wordForWord.git; cd wordForWord; sh run.sh;
   ```
  
  
