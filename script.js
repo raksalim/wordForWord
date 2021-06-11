@@ -24,26 +24,35 @@ document.addEventListener("click", reclickInputField)
 
 // Add word in input field to file and clear out input field
 document.addEventListener('keydown', event => {
-    if (event.code === 'Space' && document.getElementById("main-input").value != " ") {
-        //   currWord = document.getElementById("main-input").value
-        CURR_WRITTEN += `${document.getElementById("main-input").value}`
+    if (event.code === 'Space') {
+
+        if (document.getElementById("main-input").value != " ") {
+            CURR_WRITTEN += `${document.getElementById("main-input").value}`
+            WORD_COUNT += 1;
+        }
+
         document.getElementById("main-input").value = ""
 
-        WORD_COUNT += 1;
     } else if (event.code === "Enter"){
-        // currWord = document.getElementById("main-input").value
+
+        if (document.getElementById("main-input").value != "") {
+            WORD_COUNT += 1;
+        }
+
         CURR_WRITTEN += `${document.getElementById("main-input").value}\n`
         document.getElementById("main-input").value = ""
 
-        WORD_COUNT += 1;
     } else if ( event.code === "Tab" ) {
         event.preventDefault();
-        // currWord = document.getElementById("main-input").value
+
+        if (document.getElementById("main-input").value != "") {
+            WORD_COUNT += 1;
+        }
+        
         CURR_WRITTEN += `[TAB] ${document.getElementById("main-input").value}`
         document.getElementById("main-input").value = ""
-
-        WORD_COUNT += 1;
     }
+    
 
     updateWordCount();
 
