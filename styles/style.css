@@ -38,7 +38,9 @@ h1, h5 {
 }
 
 #content-wrap {
-    padding-bottom: 0rem;
+    padding-bottom: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 150px;
     /* background-color: crimson; */
     /* Footer height */
 }
