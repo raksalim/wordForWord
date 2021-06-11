@@ -2,7 +2,7 @@ body, input {
     background-color: rgba(40, 40, 40, 100%);
 }
 
-input {
+#main-input {
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
