@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Word For Word</title>
@@ -22,19 +23,26 @@
 
         <section id="content-wrap">
 
-            <input id="main-input" class = "center-input" type="text">
-            <p id="written" class ="center-input"></p>
-            
+            <input autocomplete="false" id="main-input" class="center-input" type="text">
+            <p id="written" class="center-input"></p>
+
             <section class="control-buttons">
                 <button id="hide-written" class="btn btn-outline-primary" style="visibility: hidden;">Hide</button>
                 <!-- <button id="copy-written" class="btn btn-outline-secondary" >Copy</button> -->
-                <button id="download-button" class="btn btn-outline-success" style="visibility: hidden;">Download</button>
+                <button id="download-button" class="btn btn-outline-success"
+                    style="visibility: hidden;">Download</button>
             </section>
-            
+
         </section>
 
 
         <footer id="footer">
+
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+
             <h5 id="word-count">Word Count: 0</h5>
             <button id="done-button" class="center-input btn btn-outline-secondary">Show Written</button>
         </footer>

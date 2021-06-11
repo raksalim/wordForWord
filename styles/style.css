@@ -34,23 +34,19 @@ h1, h5 {
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 170vh;
+    min-height: 130vh;
 }
 
 #content-wrap {
-    padding-bottom: 2.5rem;
+    padding-bottom: 0rem;
     /* background-color: crimson; */
     /* Footer height */
-}
-
-#controls {
-    /* background-color: chocolate; */
 }
 
 #footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 80%;
     height: 2.5rem;
     margin-bottom: 75px;
     /* Footer height */
@@ -74,9 +70,13 @@ button {
 }
 
 #word-count {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 header {
     margin-top: 30px;
+}
+
+.progress {
+    margin-bottom: 50px;
 }

@@ -3,6 +3,8 @@ let FILENAME = `WordForWord`
 let NUMBER_OF_SHOW_WRITTEN_ALLOWED = 5
 let NUMBER_OF_SHOW_WRITTEN_REMAINING = 5
 let WORD_COUNT = 0
+let WORD_GOAL = 100;
+let PERCENT_COMPLETE = 0;
 
 
 
@@ -53,10 +55,8 @@ document.addEventListener('keydown', event => {
         document.getElementById("main-input").value = ""
     }
     
-
     updateWordCount();
-
-
+    updatePercentComplete();
 })
 
 // hide-written button clicked
@@ -75,6 +75,8 @@ document.getElementById("download-button").addEventListener("click", function(){
     
     download(filename, text);
 }, false);
+
+document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
 
 
 function showWrittenAndControls() {
@@ -146,8 +148,15 @@ function deincrementShowButtons () {
 
 function updateWordCount () {
 
-    document.getElementById("word-count").innerText = `Word Count: ${WORD_COUNT}`;
+    document.getElementById("word-count").innerText = `Word Count: ${WORD_COUNT}/${WORD_GOAL}`;
+    
+}
 
+function updatePercentComplete () {
+
+    PERCENT_COMPLETE = parseInt((WORD_COUNT/WORD_GOAL) * 100)
+    document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
+    document.getElementById("progress-bar").innerText = `${PERCENT_COMPLETE}%`;
 }
 
 function copyWritten() {
