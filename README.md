@@ -2,7 +2,7 @@
 A writing application that only allows you to write one word at a time. You may only see what you have written after are done or have achieved your goal.
 
 
-# Website (best on Safari or Chrome Incognito ¯\_(ツ)_/¯ )
+# Website (Some bugs but what are ya gonna do ¯\_(ツ)_/¯ )
 https://wordforword.app/
 
 
