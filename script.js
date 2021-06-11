@@ -36,6 +36,7 @@ document.addEventListener('keydown', event => {
         document.getElementById("main-input").value = ""
 
     } else if (event.code === "Enter"){
+        event.preventDefault();
 
         if (document.getElementById("main-input").value != "") {
             WORD_COUNT += 1;
