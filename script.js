@@ -62,6 +62,8 @@ document.addEventListener('keydown', event => {
 // hide-written button clicked
 document.getElementById("hide-written").addEventListener("click", hideWrittenAndControls);
 
+// document.getElementById("copy-written").addEventListener("click", copyWritten);
+
 // Display what is already written to the user
 document.getElementById("done-button").addEventListener("click", showWrittenAndControls)
 
@@ -147,3 +149,18 @@ function updateWordCount () {
     document.getElementById("word-count").innerText = `Word Count: ${WORD_COUNT}`;
 
 }
+
+function copyWritten() {
+    /* Get the text field */
+    let copyText = document.getElementById("written");
+  
+    /* Select the text field */
+    copyText.select();
+    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
