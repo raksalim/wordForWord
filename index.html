@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <header>
         <h1>Word for Word</h1>
         <h5>Click anywhere and just start writing</h5>
@@ -24,13 +25,12 @@
         <section id="content-wrap">
 
             <input autocomplete="false" id="main-input" class="center-input" type="text">
-            <p id="written" class="center-input"></p>
+            <p id="written" class="center-input" ></p>
 
             <section class="control-buttons">
-                <button id="hide-written" class="btn btn-outline-primary" style="visibility: hidden;">Hide</button>
-                <!-- <button id="copy-written" class="btn btn-outline-secondary" >Copy</button> -->
-                <button id="download-button" class="btn btn-outline-success"
-                    style="visibility: hidden;">Download</button>
+                <button id="hide-button" class="btn btn-outline-primary" style="visibility: hidden;">Hide</button>
+                <button id="copy-button" onClick="copyWritten()" class="btn btn-outline-secondary" style="visibility: hidden;">Copy</button>
+                <button id="download-button" class="btn btn-outline-success" style="visibility: hidden;">Download</button>
             </section>
 
         </section>
@@ -47,6 +47,7 @@
             <button id="done-button" class="center-input btn btn-outline-secondary">Show Written</button>
         </footer>
     </main>
+    <input type="text" id="copy-input" style="visibility: hidden;">
 
 </body>
 

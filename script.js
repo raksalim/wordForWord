@@ -3,7 +3,7 @@ let FILENAME = `WordForWord`
 let NUMBER_OF_SHOW_WRITTEN_ALLOWED = 5
 let NUMBER_OF_SHOW_WRITTEN_REMAINING = 5
 let WORD_COUNT = 0
-let WORD_GOAL = 100;
+let WORD_GOAL = 300;
 let PERCENT_COMPLETE = 0;
 
 
@@ -22,6 +22,8 @@ window.onbeforeunload = function(e) {
 };
 
 document.getElementById("done-button").innerText = `Show Written (${NUMBER_OF_SHOW_WRITTEN_REMAINING}/${NUMBER_OF_SHOW_WRITTEN_ALLOWED} left)`;
+
+// Wherever you click on screen the input will be lightlighted
 document.addEventListener("click", reclickInputField)
 
 // Add word in input field to file and clear out input field
@@ -59,8 +61,8 @@ document.addEventListener('keydown', event => {
     updatePercentComplete();
 })
 
-// hide-written button clicked
-document.getElementById("hide-written").addEventListener("click", hideWrittenAndControls);
+// hide-button button clicked
+document.getElementById("hide-button").addEventListener("click", hideWrittenAndControls);
 
 // document.getElementById("copy-written").addEventListener("click", copyWritten);
 
@@ -80,43 +82,48 @@ document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
 
 
 function showWrittenAndControls() {
-    showWritten()
-    showClearWrittenButton()
-    showDownloadButton()
+    document.getElementById("written").innerText = CURR_WRITTEN;
+    document.getElementById("hide-button").style.visibility = "visible";
+    document.getElementById("copy-button").style.visibility = "visible"
+    document.getElementById("download-button").style.visibility = "visible";
     deincrementShowButtons()
 }
 
 function hideWrittenAndControls() {
-    hideWritten()
-    hideClearWrittenButton()
-    hideDownloadButton()
-}
-
-
-function showWritten(){
-    console.log(CURR_WRITTEN);
-    document.getElementById("written").innerText = CURR_WRITTEN;
-}
-
-function hideWritten(){
     document.getElementById("written").innerText = "";
-}
-
-function showClearWrittenButton() {
-    document.getElementById("hide-written").style.visibility = "visible";
-}
-
-function hideClearWrittenButton() {
-    document.getElementById("hide-written").style.visibility = "hidden";
-}
-
-function showDownloadButton () {
-    document.getElementById("download-button").style.visibility = "visible";
-}
-
-function hideDownloadButton () {
+    document.getElementById("hide-button").style.visibility = "hidden";
+    document.getElementById("copy-button").style.visibility = "hidden"
     document.getElementById("download-button").style.visibility = "hidden";
+    revertCopiedToCopy();
 }
+
+// // ------ hide and show written
+// function showWritten(){
+//     console.log(CURR_WRITTEN);
+//     document.getElementById("written").innerText = CURR_WRITTEN;
+// }
+
+// function hideWritten(){
+//     document.getElementById("written").innerText = "";
+// }
+
+// // ------- hide and show hide-button button
+// function showClearWrittenButton() {
+//     document.getElementById("hide-button").style.visibility = "visible";
+// }
+
+// function hideClearWrittenButton() {
+//     document.getElementById("hide-button").style.visibility = "hidden";
+// }
+
+// // ----- hide and show 
+// function showDownloadButton () {
+//     document.getElementById("download-button").style.visibility = "visible";
+// }
+
+// function hideDownloadButton () {
+//     document.getElementById("download-button").style.visibility = "hidden";
+// }
 
 function reclickInputField () {
     console.log("reclicked")
@@ -160,16 +167,42 @@ function updatePercentComplete () {
 }
 
 function copyWritten() {
+
+    // show current text
+    document.getElementById("written").innerText = CURR_WRITTEN;
+
     /* Get the text field */
-    let copyText = document.getElementById("written");
-  
+    var copyText = document.getElementById("copy-input");
+    
+    copyText.style.visibility = "visible";
+
+    copyText.value = CURR_WRITTEN;
+
     /* Select the text field */
     copyText.select();
-    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
   
     /* Copy the text inside the text field */
     document.execCommand("copy");
+
+    copyText.style.visibility = "hidden";
+
+    // change button to copied
+    changeCopyToCopied();
   
-    /* Alert the copied text */
-    alert("Copied the text: " + copyText.value);
   }
+
+function changeCopyToCopied () {
+
+    let copyButton = document.getElementById("copy-button");
+    copyButton.className = "btn btn-success";
+    copyButton.innerText = "Copied";
+
+}
+
+function revertCopiedToCopy () {
+    let copyButton = document.getElementById("copy-button");
+    copyButton.className = "btn btn-outline-secondary";
+    copyButton.innerText = "Copy";
+
+}
