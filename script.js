@@ -5,12 +5,13 @@ let NUMBER_OF_SHOW_WRITTEN_REMAINING = 5
 let WORD_COUNT = 0
 let WORD_GOAL = 300;
 let PERCENT_COMPLETE = 0;
+let MIN_WORD_COUNT_TO_SAVE = 50;
 
 
 
 window.onbeforeunload = function(e) {
     
-        if (WORD_COUNT > 10) {
+        if (WORD_COUNT > MIN_WORD_COUNT_TO_SAVE) {
         var text = CURR_WRITTEN;
         var filename = `${FILENAME}.txt`;
         download(filename, text);
@@ -86,6 +87,7 @@ function showWrittenAndControls() {
     document.getElementById("written").innerText = CURR_WRITTEN;
     document.getElementById("hide-button").style.visibility = "visible";
     document.getElementById("copy-button").style.visibility = "visible"
+    document.getElementById("clear-button").style.visibility = "visible"
     document.getElementById("download-button").style.visibility = "visible";
     deincrementShowButtons()
 }
@@ -94,6 +96,7 @@ function hideWrittenAndControls() {
     document.getElementById("written").innerText = "";
     document.getElementById("hide-button").style.visibility = "hidden";
     document.getElementById("copy-button").style.visibility = "hidden"
+    document.getElementById("clear-button").style.visibility = "hidden";
     document.getElementById("download-button").style.visibility = "hidden";
     revertCopiedToCopy();
 }
@@ -205,5 +208,34 @@ function revertCopiedToCopy () {
     let copyButton = document.getElementById("copy-button");
     copyButton.className = "btn btn-outline-secondary";
     copyButton.innerText = "Copy";
+
+}
+
+function clearWritten() {
+    let confirmation = confirmMessage("Are you sure you want to clear written?")
+
+    if (confirmation) {
+        CURR_WRITTEN = ``;
+        NUMBER_OF_SHOW_WRITTEN_REMAINING = 5;
+        WORD_COUNT = 0;
+        PERCENT_COMPLETE = 0;
+    }
+
+    updateWordCount();
+    updatePercentComplete();
+    hideWrittenAndControls();
+
+}
+
+function confirmMessage() {
+
+
+    let confirmation = confirm("Are you sure you want to clear written?");
+
+    if (confirmation) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
