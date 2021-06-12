@@ -1,5 +1,6 @@
 body, input {
     background-color: rgba(40, 40, 40, 100%);
+    font-family: monospace;
 }
 
 #main-input {
@@ -20,8 +21,6 @@ body, input {
 h1, h5 {
     color: rgba(229, 229, 229, 100%);
     text-align: center;
-    font-family: monospace;
-
 }
 
 /* .center-input {
@@ -61,7 +60,6 @@ h1, h5 {
     margin-right: 75px;
     margin-top: 50px;
     margin-bottom: 50px;
-    font-family: monospace;
 }
 
 .control-buttons {
@@ -90,4 +88,8 @@ header {
 
 form {
     width: 100%;
+}
+
+#clearWrittenModal {
+    background-color: rgba( 49, 49, 51, 100%);
 }
