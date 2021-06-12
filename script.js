@@ -7,8 +7,7 @@ let WORD_GOAL = 300;
 let PERCENT_COMPLETE = 0;
 let MIN_WORD_COUNT_TO_SAVE = 50;
 
-
-
+// prevent reload without saving
 window.onbeforeunload = function (e) {
 
     if (WORD_COUNT > MIN_WORD_COUNT_TO_SAVE) {
@@ -22,7 +21,10 @@ window.onbeforeunload = function (e) {
 
 };
 
+// Initial Setup ---------
 document.getElementById("done-button").innerText = `Show Written (${NUMBER_OF_SHOW_WRITTEN_REMAINING}/${NUMBER_OF_SHOW_WRITTEN_ALLOWED} left)`;
+document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
+
 
 // Wherever you click on screen the input will be lightlighted
 document.addEventListener("click", reclickInputField)
@@ -39,7 +41,7 @@ document.addEventListener('keydown', event => {
         document.getElementById("main-input").value = ""
 
     } else if (event.code === "Enter") {
-        // event.preventDefault();
+        event.preventDefault();
 
         let modelExists = document.getElementById("clearWrittenModal");
         console.log(modelExists)
@@ -67,10 +69,11 @@ document.addEventListener('keydown', event => {
     updatePercentComplete();
 })
 
+
+// Control Buttons ---------------
+
 // hide-button button clicked
 document.getElementById("hide-button").addEventListener("click", hideWrittenAndControls);
-
-// document.getElementById("copy-written").addEventListener("click", copyWritten);
 
 // Display what is already written to the user
 document.getElementById("done-button").addEventListener("click", showWrittenAndControls)
@@ -84,7 +87,6 @@ document.getElementById("download-button").addEventListener("click", function ()
     download(filename, text);
 }, false);
 
-document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
 
 
 function showWrittenAndControls() {
@@ -106,7 +108,6 @@ function hideWrittenAndControls() {
 }
 
 function reclickInputField() {
-    console.log("reclicked")
     document.getElementById("main-input").select();
 }
 
@@ -198,6 +199,7 @@ function clearWritten() {
     updateWordCount();
     updatePercentComplete();
     hideWrittenAndControls();
+
 
 }
 

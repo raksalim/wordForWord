@@ -3,6 +3,11 @@ body, input {
     font-family: monospace;
 }
 
+h1, h5 {
+    color: rgba(229, 229, 229, 100%);
+    text-align: center;
+}
+
 #main-input {
     border-top-style: hidden;
     border-right-style: hidden;
@@ -17,16 +22,6 @@ body, input {
     font-family: 'Courier New', Courier, monospace;
     /* background-color: burlywood; */
 }
-
-h1, h5 {
-    color: rgba(229, 229, 229, 100%);
-    text-align: center;
-}
-
-/* .center-input {
-    margin: auto;
-    display: block;
-} */
 
 #page-container {
     display: flex;
@@ -56,7 +51,7 @@ h1, h5 {
 
 #written {
     color: rgba(227, 227, 227, 100%);
-    margin-left: 75px;
+    margin-left: auto;
     margin-right: 75px;
     margin-top: 50px;
     margin-bottom: 50px;
