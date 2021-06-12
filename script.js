@@ -208,15 +208,13 @@ function fullScreenAndFocusMode() {
     let elem = document.querySelector("html");
 
     if (!document.fullscreenElement) {
-
-        document.documentElement.scrollTop = document.body.scrollTop = 140;
         elem.requestFullscreen().catch(err => {
             alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
         });
     } else {
-        document.documentElement.scrollTop = document.body.scrollTop = 140;
         document.exitFullscreen();
     }
+    focusMode();
 }
 
 function focusMode() {
