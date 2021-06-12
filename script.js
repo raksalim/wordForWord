@@ -219,11 +219,11 @@ function clearWritten() {
         NUMBER_OF_SHOW_WRITTEN_REMAINING = 5;
         WORD_COUNT = 0;
         PERCENT_COMPLETE = 0;
+        updateWordCount();
+        updatePercentComplete();
+        hideWrittenAndControls();
     }
 
-    updateWordCount();
-    updatePercentComplete();
-    hideWrittenAndControls();
 
 }
 
