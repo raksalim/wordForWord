@@ -4,7 +4,8 @@ input {
     font-family: monospace;
 }
 
-h1, h5{
+h1,
+h5 {
     color: rgba(229, 229, 229, 100%);
     text-align: center;
 }
@@ -13,6 +14,11 @@ h1, h5{
 button {
     margin-right: 15px;
     margin-bottom: 15px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
 }
 
 #main-input {
@@ -46,7 +52,7 @@ button {
     /* Footer height */
 }
 
-#footer {
+#progress-section {
     position: absolute;
     bottom: 0;
     width: 80%;
@@ -102,4 +108,13 @@ form {
 
 #focus-button {
     width: fit-content
+}
+
+hr {
+    margin-top: 75px;
+}
+
+#copyrightMessage, hr {
+    color: rgb(105, 105, 105);
+    text-align: center;
 }
