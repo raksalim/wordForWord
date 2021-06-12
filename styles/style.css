@@ -24,10 +24,10 @@ h1, h5 {
 
 }
 
-.center-input {
+/* .center-input {
     margin: auto;
     display: block;
-}
+} */
 
 #page-container {
     display: flex;
@@ -65,12 +65,15 @@ h1, h5 {
 }
 
 .control-buttons {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
 
 button {
     margin-right: 15px;
+    margin-bottom: 15px;
+    min-width: 100px;
 }
 
 #word-count {
@@ -83,4 +86,8 @@ header {
 
 .progress {
     margin-bottom: 50px;
+}
+
+form {
+    width: 100%;
 }
