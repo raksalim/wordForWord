@@ -176,14 +176,14 @@ function copyWritten() {
 function changeCopyToCopied() {
 
     let copyButton = document.getElementById("copy-button");
-    copyButton.className = "btn btn-success";
+    copyButton.className = "btn btn-success equal-sized-buttons";
     copyButton.innerText = "Copied";
 
 }
 
 function revertCopiedToCopy() {
     let copyButton = document.getElementById("copy-button");
-    copyButton.className = "btn btn-outline-secondary";
+    copyButton.className = "btn btn-outline-secondary equal-sized-buttons";
     copyButton.innerText = "Copy";
 
 }
@@ -204,7 +204,7 @@ function clearWritten() {
 }
 
 // DOM element which needs to enter fullscreen mode
-function focusMode() {
+function fullScreenAndFocusMode() {
     let elem = document.querySelector("html");
 
     if (!document.fullscreenElement) {
@@ -217,6 +217,10 @@ function focusMode() {
         document.documentElement.scrollTop = document.body.scrollTop = 140;
         document.exitFullscreen();
     }
+}
+
+function focusMode() {
+    document.documentElement.scrollTop = document.body.scrollTop = 140;
 }
 
 function showCurrentWritten () {
