@@ -218,7 +218,7 @@ function fullScreenAndFocusMode() {
 }
 
 function focusMode() {
-    document.documentElement.scrollTop = document.body.scrollTop = 140;
+    document.documentElement.scrollTop = document.body.scrollTop = 160;
 }
 
 function showCurrentWritten () {

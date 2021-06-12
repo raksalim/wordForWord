@@ -4,11 +4,11 @@ input {
     font-family: monospace;
 }
 
-h1,
-h5 {
+h1, h5{
     color: rgba(229, 229, 229, 100%);
     text-align: center;
 }
+
 
 button {
     margin-right: 15px;
