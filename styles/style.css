@@ -1,8 +1,27 @@
-body, input {
+body,
+input {
     background-color: rgba(40, 40, 40, 100%);
+    font-family: monospace;
 }
 
-input {
+h1,
+h5 {
+    color: rgba(229, 229, 229, 100%);
+    text-align: center;
+}
+
+
+button {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#main-input {
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
@@ -17,18 +36,6 @@ input {
     /* background-color: burlywood; */
 }
 
-h1, h5 {
-    color: rgba(229, 229, 229, 100%);
-    text-align: center;
-    font-family: monospace;
-
-}
-
-.center-input {
-    margin: auto;
-    display: block;
-}
-
 #page-container {
     display: flex;
     justify-content: center;
@@ -38,12 +45,14 @@ h1, h5 {
 }
 
 #content-wrap {
-    padding-bottom: 0rem;
+    padding-bottom: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 150px;
     /* background-color: crimson; */
     /* Footer height */
 }
 
-#footer {
+#progress-section {
     position: absolute;
     bottom: 0;
     width: 80%;
@@ -55,18 +64,26 @@ h1, h5 {
 
 #written {
     color: rgba(227, 227, 227, 100%);
+
+    margin-left: 123px;
+    margin-right: 50px;
+
     margin-top: 50px;
     margin-bottom: 50px;
-    font-family: monospace;
+
+    display: flex;
+    justify-content: space-around;
+    max-width: 80%;
 }
 
 .control-buttons {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
 
-button {
-    margin-right: 15px;
+.equal-sized-buttons {
+    min-width: 100px;
 }
 
 #word-count {
@@ -79,4 +96,25 @@ header {
 
 .progress {
     margin-bottom: 50px;
+}
+
+form {
+    width: 100%;
+}
+
+.modal {
+    padding-top: 200px;
+}
+
+#focus-button {
+    width: fit-content
+}
+
+hr {
+    margin-top: 75px;
+}
+
+#copyrightMessage, hr {
+    color: rgb(105, 105, 105);
+    text-align: center;
 }
