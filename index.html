@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Word For Word</title>
 </head>
 
@@ -68,8 +70,8 @@
                 <button id="done-button" class="btn btn-outline-secondary">Show Written</button>
                 <button id="focus-button" class="btn btn-outline-warning bi bi-lightbulb"
                     onclick="focusMode()"></button>
-                <button id="settings-button" data-toggle="modal" data-target="#settings-modal"
-                    onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons">Clear</button>
+                <!-- <button id="settings-button" data-toggle="modal" data-target="#settings-modal"
+                    onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons">Clear</button> -->
             </section>
 
             <hr>
@@ -120,16 +122,42 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="settingsLabel">Clean Slate</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="settingsLabel">Settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        onclick="hideSettingsModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Ready to restart? :)
+                    Settings Modal
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="hideSettingsModal()">No</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog" aria-labelledby="welcomeLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="welcomeLabel">Welcome!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        onclick="hideWelcomeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Welcome Modal
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="hideWelcomeModal()">No</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
                 </div>
             </div>
@@ -140,6 +168,37 @@
 </body>
 
 </html>
+
+<script>
+    function showSettingsModal() {
+        $(document).ready(function () {
+            $('#settings-modal').modal('show');
+        });
+    }
+
+    function hideSettingsModal() {
+        $(document).ready(function () {
+            $('#settings-modal').modal('hide');
+        });
+    }
+
+    function showWelcomeModal() {
+        $(document).ready(function () {
+            $('#welcome-modal').modal('show');
+            document.querySelector("html").addEventListener("click", event => {
+                event.preventDefault();
+            })
+        });
+    }
+
+    function hideWelcomeModal() {
+        $(document).ready(function () {
+            $('#welcome-modal').modal('hide');
+        });
+    }
+</script>
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>

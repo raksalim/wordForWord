@@ -127,10 +127,10 @@ function download(filename, text) {
 function deincrementShowButtons() {
     NUMBER_OF_SHOW_WRITTEN_REMAINING -= 1;
 
-    if (NUMBER_OF_SHOW_WRITTEN_REMAINING > 1) {
+    if (NUMBER_OF_SHOW_WRITTEN_REMAINING > 0) {
         document.getElementById("done-button").innerText = `Show Written (${NUMBER_OF_SHOW_WRITTEN_REMAINING}/${NUMBER_OF_SHOW_WRITTEN_ALLOWED} left)`;
     } else {
-        document.getElementById("done-button").innerText = `Show Written (Amazing Going! <3)`;
+        document.getElementById("done-button").innerText = `Show Written (Amazing! Keep Going! <3)`;
     }
 }
 
@@ -225,3 +225,4 @@ function showCurrentWritten () {
     document.getElementById("written").innerText = CURR_WRITTEN;
 
 }
+
