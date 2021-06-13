@@ -43,7 +43,7 @@ document.addEventListener('keydown', event => {
     } else if (event.code === "Enter") {
         event.preventDefault();
 
-        let modelExists = document.getElementById("clearWrittenModal");
+        let modelExists = document.getElementById("clear-written-modal");
         console.log(modelExists)
 
 

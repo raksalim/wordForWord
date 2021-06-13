@@ -44,7 +44,7 @@
                     style="visibility: hidden;">Hide</button>
                 <button id="copy-button" onClick="copyWritten()" class="btn btn-outline-secondary equal-sized-buttons"
                     style="visibility: hidden;">Copy</button>
-                <button id="clear-button" data-toggle="modal" data-target="#clearWrittenModal"
+                <button id="clear-button" data-toggle="modal" data-target="#clear-written-modal"
                     onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons"
                     style="visibility: hidden;">Clear</button>
             </section>
@@ -68,16 +68,21 @@
                 <button id="done-button" class="btn btn-outline-secondary">Show Written</button>
                 <button id="focus-button" class="btn btn-outline-warning bi bi-lightbulb"
                     onclick="focusMode()"></button>
+                <button id="settings-button" data-toggle="modal" data-target="#settings-modal"
+                    onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons">Clear</button>
             </section>
 
             <hr>
 
-            <footer >
+            <footer>
                 <p id="copyrightMessage">© 2021: Raksa Lim</p>
                 <div>
-                    <a href="mailto: raksalim97@gmail.com" target="_blank" class="bi bi-envelope button" style="color: cornflowerblue;"></a>
-                    <a href="https://www.linkedin.com/in/raksa-lim-0ab033189" target="_blank" class="bi bi-linkedin button" style="color: rgba( 0, 119, 180, 100%);"></a>
-                    <a href="https://github.com/raksalim/wordForWord" target="_blank" class="bi bi-github button" style="color: rgba( 110, 83, 147, 100%);"></a>
+                    <a href="mailto: raksalim97@gmail.com" target="_blank" class="bi bi-envelope button"
+                        style="color: cornflowerblue;"></a>
+                    <a href="https://www.linkedin.com/in/raksa-lim-0ab033189" target="_blank"
+                        class="bi bi-linkedin button" style="color: rgba( 0, 119, 180, 100%);"></a>
+                    <a href="https://github.com/raksalim/wordForWord" target="_blank" class="bi bi-github button"
+                        style="color: rgba( 110, 83, 147, 100%);"></a>
                 </div>
             </footer>
         </section>
@@ -85,13 +90,13 @@
     <input type="text" id="copy-input" style="visibility: hidden;">
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="clearWrittenModal" tabindex="-1" role="dialog" aria-labelledby="clearWrittenLabel"
+    <!-- Clear Written Modal -->
+    <div class="modal fade" id="clear-written-modal" tabindex="-1" role="dialog" aria-labelledby="clear-written-mabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="clearWrittenLabel">Clean Slate</h5>
+                    <h5 class="modal-title" id="clear-written-mabel">Clean Slate</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -107,6 +112,33 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="settingsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsLabel">Clean Slate</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Ready to restart? :)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 </body>
 
