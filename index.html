@@ -15,7 +15,7 @@
     <title>Word For Word</title>
 </head>
 
-<body>
+<body onload="showIntroWelcomeModal()">
 
     <header>
         <h1>Word for Word</h1>
@@ -64,31 +64,34 @@
                 <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
                     aria-valuemin="0" aria-valuemax="100">0%</div>
             </div>
-            <h5 id="word-count">Word Count: 0</h5>
+            <h5 id="word-count">Word Count: 0/100</h5>
 
-            <section class="control-buttons">
-                <button id="done-button" class="btn btn-outline-secondary">Show Written</button>
-                <button id="focus-button" class="btn btn-outline-warning bi bi-lightbulb"
-                    onclick="focusMode()"></button>
-                <!-- <button id="settings-button" data-toggle="modal" data-target="#settings-modal"
-                    onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons">Clear</button> -->
-            </section>
-
-            <hr>
-
-            <footer>
-                <p id="copyrightMessage">© 2021: Raksa Lim</p>
-                <div>
-                    <a href="mailto: raksalim97@gmail.com" target="_blank" class="bi bi-envelope button"
-                        style="color: cornflowerblue;"></a>
-                    <a href="https://www.linkedin.com/in/raksa-lim-0ab033189" target="_blank"
-                        class="bi bi-linkedin button" style="color: rgba( 0, 119, 180, 100%);"></a>
-                    <a href="https://github.com/raksalim/wordForWord" target="_blank" class="bi bi-github button"
-                        style="color: rgba( 110, 83, 147, 100%);"></a>
-                </div>
-            </footer>
         </section>
+
     </main>
+
+    <section class="main-control-buttons">
+        <button id="settings-button" class="btn btn-outline-secondary bi bi-gear-fill no-margins"
+            onclick="showIntroWelcomeModal()"></button>
+        <button id="done-button" class="btn btn-outline-secondary no-margins">Show Written</button>
+        <button id="focus-button" class="btn btn-outline-warning bi bi-lightbulb no-margins"
+            onclick="focusMode()"></button>
+        <!-- <button id="settings-button" data-toggle="modal" data-target="#settings-modal"
+                        onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons">Clear</button> -->
+    </section>
+
+    <hr>
+    <footer>
+        <p id="copyrightMessage" class="no-margins">© 2021: Raksa Lim</p>
+        <div>
+            <a href="mailto: raksalim97@gmail.com" target="_blank" class="bi bi-envelope button no-margins"
+                style="color: cornflowerblue;"></a>
+            <a href="https://www.linkedin.com/in/raksa-lim-0ab033189" target="_blank"
+                class="bi bi-linkedin button no-margins" style="color: rgba( 0, 119, 180, 100%);"></a>
+            <a href="https://github.com/raksalim/wordForWord" target="_blank" class="bi bi-github button no-margins"
+                style="color: rgba( 110, 83, 147, 100%);"></a>
+        </div>
+    </footer>
     <input type="text" id="copy-input" style="visibility: hidden;">
 
 
@@ -115,87 +118,74 @@
         </div>
     </div>
 
-
-    <!-- Settings Modal -->
-    <div class="modal fade" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="settingsLabel"
+    <!-- Intro/Settings Modal -->
+    <div class="modal fade" id="intro-settings-modal" tabindex="-1" role="dialog" aria-labelledby="intro-settings-label"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="settingsLabel">Settings</h5>
+                    <h5 class="modal-title" id="intro-settings-label">Intro & Settings</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        onclick="hideSettingsModal()">
+                        onclick="hideIntroWelcomeModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Settings Modal
+                    <h6 class=" center-text"> ------------ HOW TO USE ------------ </h6>
+                    <ol>
+                        <li>Set your goals</li>
+                        <li>Select your enviornment</li>
+                        <li>Click anywhere and start writing</li>
+                        <li>Explore :)</li>
+                    </ol>
+                    <h6 class=" center-text"> ------------ SETTINGS ------------ </h6>
+                    
+                    <form class="form-inline" style="margin: 0px 20px 0px 20px;">
+                        <div class="form-group">
+                          <label for="targetWordCount">Target Word Count:</label>
+                          <input type="number" id="targetWordCount" class="form-control col-md-3" value="100" min="100" max="10000" style="margin-left: 5px; margin-right: 5px;">
+                          <small id="passwordHelpInline" class="text-muted" >
+                            Min 100 Words
+                          </small>
+                        </div>
+
+                      </form>
+                    <!-- <label for="wordCountGoal" class="form-text">Word Count</label>
+                    <input type="number" class="form-control" id="wordCountgoal"> -->
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="hideSettingsModal()">No</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                        onclick="hideIntroWelcomeModal()">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="applySettings()">Apply Settings</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Welcome Modal -->
-    <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog" aria-labelledby="welcomeLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="welcomeLabel">Welcome!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        onclick="hideWelcomeModal()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Welcome Modal
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="hideWelcomeModal()">No</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 </body>
 
 </html>
 
 <script>
-    function showSettingsModal() {
+    
+    function showIntroWelcomeModal() {
         $(document).ready(function () {
-            $('#settings-modal').modal('show');
-        });
-    }
-
-    function hideSettingsModal() {
-        $(document).ready(function () {
-            $('#settings-modal').modal('hide');
-        });
-    }
-
-    function showWelcomeModal() {
-        $(document).ready(function () {
-            $('#welcome-modal').modal('show');
+            $('#intro-settings-modal').modal('show');
             document.querySelector("html").addEventListener("click", event => {
                 event.preventDefault();
             })
+            AUTO_CLICK_INPUT = false;
         });
     }
 
-    function hideWelcomeModal() {
+    function hideIntroWelcomeModal() {
         $(document).ready(function () {
-            $('#welcome-modal').modal('hide');
+            $('#intro-settings-modal').modal('hide');
         });
+        AUTO_CLICK_INPUT = true;
     }
+
 </script>
 
 

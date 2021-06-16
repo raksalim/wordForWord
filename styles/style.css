@@ -17,6 +17,7 @@ button {
 }
 
 footer {
+    margin: 10px 40px 0px 40px;
     display: flex;
     justify-content: space-between;
 }
@@ -48,6 +49,7 @@ footer {
     padding-bottom: 2.5rem;
     margin-top: 50px;
     margin-bottom: 150px;
+    /* min-height: 150vh; */
     /* background-color: crimson; */
     /* Footer height */
 }
@@ -82,6 +84,14 @@ footer {
     justify-content: center;
 }
 
+.main-control-buttons {
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
 .equal-sized-buttons {
     min-width: 100px;
 }
@@ -103,18 +113,32 @@ form {
 }
 
 .modal {
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 #focus-button {
     width: fit-content
 }
 
-hr {
-    margin-top: 75px;
-}
 
 #copyrightMessage, hr {
     color: rgb(105, 105, 105);
+    text-align: center;
+}
+
+.no-margins {
+    margin: 0px;
+}
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.modal-title {
+    color: rgba( 49, 49, 51, 100%);
+}
+
+.center-text {
     text-align: center;
 }

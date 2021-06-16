@@ -3,9 +3,12 @@ let FILENAME = `WordForWord`
 let NUMBER_OF_SHOW_WRITTEN_ALLOWED = 5
 let NUMBER_OF_SHOW_WRITTEN_REMAINING = 5
 let WORD_COUNT = 0
-let WORD_GOAL = 300;
+let WORD_GOAL = 100;
 let PERCENT_COMPLETE = 0;
 let MIN_WORD_COUNT_TO_SAVE = 50;
+let AUTO_CLICK_INPUT = true;
+let MIN_WORD_COUNT_GOAL = 100;
+let MAX_WORD_COUNT_GOAL = 10000;
 
 // prevent reload without saving
 window.onbeforeunload = function (e) {
@@ -27,7 +30,11 @@ document.getElementById("progress-bar").style.width = `${PERCENT_COMPLETE}%`;
 
 
 // Wherever you click on screen the input will be lightlighted
-document.addEventListener("click", reclickInputField)
+document.addEventListener("click", event => {
+    if (AUTO_CLICK_INPUT) {
+        reclickInputField();
+    }
+})
 
 // Add word in input field to file and clear out input field
 document.addEventListener('keydown', event => {
@@ -44,8 +51,6 @@ document.addEventListener('keydown', event => {
         event.preventDefault();
 
         let modelExists = document.getElementById("clear-written-modal");
-        console.log(modelExists)
-
 
         if (document.getElementById("main-input").value != "") {
             WORD_COUNT += 1;
@@ -226,3 +231,18 @@ function showCurrentWritten () {
 
 }
 
+function applySettings () {
+
+    let userWordCountgoal = parseInt(document.getElementById("targetWordCount").value);
+    console.log(userWordCountgoal);
+    if (userWordCountgoal >= MIN_WORD_COUNT_GOAL && userWordCountgoal <= MAX_WORD_COUNT_GOAL) {
+        WORD_GOAL = userWordCountgoal;
+    } else {
+        userWordCountgoal = WORD_GOAL;
+    }
+
+    updateWordCount();
+    updatePercentComplete();
+    hideIntroWelcomeModal();
+
+}
