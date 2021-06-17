@@ -83,14 +83,15 @@ document.getElementById("hide-button").addEventListener("click", hideWrittenAndC
 // Display what is already written to the user
 document.getElementById("done-button").addEventListener("click", showWrittenAndControls)
 
-// Start file download.
-document.getElementById("download-button").addEventListener("click", function () {
-    // Generate download of hello.txt file with some content
-    var text = CURR_WRITTEN;
-    var filename = `${FILENAME}.txt`;
+// Start file download. CURRENTLY DEPRICATED
+// document.getElementById("download-button").addEventListener("click", function () {
+//     // Generate download of hello.txt file with some content
+//     var text = CURR_WRITTEN;
+//     var filename = `${FILENAME}.txt`;
 
-    download(filename, text);
-}, false);
+//     download(filename, text);
+
+// }, false);
 
 
 
@@ -99,7 +100,7 @@ function showWrittenAndControls() {
     document.getElementById("hide-button").style.visibility = "visible";
     document.getElementById("copy-button").style.visibility = "visible"
     document.getElementById("clear-button").style.visibility = "visible"
-    document.getElementById("download-button").style.visibility = "visible";
+    // document.getElementById("download-button").style.visibility = "visible";
     deincrementShowButtons()
 }
 
@@ -108,7 +109,7 @@ function hideWrittenAndControls() {
     document.getElementById("hide-button").style.visibility = "hidden";
     document.getElementById("copy-button").style.visibility = "hidden"
     document.getElementById("clear-button").style.visibility = "hidden";
-    document.getElementById("download-button").style.visibility = "hidden";
+    // document.getElementById("download-button").style.visibility = "hidden";
     revertCopiedToCopy();
 }
 
@@ -128,6 +129,31 @@ function download(filename, text) {
 
     document.body.removeChild(element);
 }
+
+// function download(t,f,m) {
+//     try {
+//       var b = new Blob([t],{type:m});
+//       saveAs(b, f);
+//     } catch (e) {
+//       window.open("data:"+m+"," + encodeURIComponent(t), '_blank','');
+//     }
+//   }
+
+
+// function download(filename, text) {
+//     var pom = document.createElement('a');
+//     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//     pom.setAttribute('download', filename);
+
+//     if (document.createEvent) {
+//         var event = document.createEvent('MouseEvents');
+//         event.initEvent('click', true, true);
+//         pom.dispatchEvent(event);
+//     }
+//     else {
+//         pom.click();
+//     }
+// }
 
 function deincrementShowButtons() {
     NUMBER_OF_SHOW_WRITTEN_REMAINING -= 1;
@@ -234,7 +260,6 @@ function showCurrentWritten () {
 function applySettings () {
 
     let userWordCountgoal = parseInt(document.getElementById("targetWordCount").value);
-    console.log(userWordCountgoal);
     if (userWordCountgoal >= MIN_WORD_COUNT_GOAL && userWordCountgoal <= MAX_WORD_COUNT_GOAL) {
         WORD_GOAL = userWordCountgoal;
     } else {
@@ -245,4 +270,22 @@ function applySettings () {
     updatePercentComplete();
     hideIntroWelcomeModal();
 
+}
+
+
+function showIntroWelcomeModal() {
+    $(document).ready(function () {
+        $('#intro-settings-modal').modal('show');
+        document.querySelector("html").addEventListener("click", event => {
+            event.preventDefault();
+        })
+        AUTO_CLICK_INPUT = false;
+    });
+}
+
+function hideIntroWelcomeModal() {
+    $(document).ready(function () {
+        $('#intro-settings-modal').modal('hide');
+    });
+    AUTO_CLICK_INPUT = true;
 }

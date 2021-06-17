@@ -50,10 +50,12 @@
                     onclick="showCurrentWritten()" class="btn btn-outline-danger equal-sized-buttons"
                     style="visibility: hidden;">Clear</button>
             </section>
-            <section class="control-buttons">
+
+            <!-- This download button was depricated. Currently fixing -->
+            <!-- <section class="control-buttons">
                 <button id="download-button" class="btn btn-outline-success equal-sized-buttons"
                     style="visibility: hidden;">Download</button>
-            </section>
+            </section> -->
 
 
         </section>
@@ -96,7 +98,7 @@
 
 
     <!-- Clear Written Modal -->
-    <div class="modal fade" id="clear-written-modal" tabindex="-1" role="dialog" aria-labelledby="clear-written-mabel"
+    <section class="modal fade" id="clear-written-modal" tabindex="-1" role="dialog" aria-labelledby="clear-written-mabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -116,10 +118,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Intro/Settings Modal -->
-    <div class="modal fade" id="intro-settings-modal" tabindex="-1" role="dialog" aria-labelledby="intro-settings-label"
+    <section class="modal fade" id="intro-settings-modal" tabindex="-1" role="dialog" aria-labelledby="intro-settings-label"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -161,33 +163,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 
 </html>
 
 <script>
-    
-    function showIntroWelcomeModal() {
-        $(document).ready(function () {
-            $('#intro-settings-modal').modal('show');
-            document.querySelector("html").addEventListener("click", event => {
-                event.preventDefault();
-            })
-            AUTO_CLICK_INPUT = false;
-        });
-    }
-
-    function hideIntroWelcomeModal() {
-        $(document).ready(function () {
-            $('#intro-settings-modal').modal('hide');
-        });
-        AUTO_CLICK_INPUT = true;
-    }
 
 </script>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -202,4 +186,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
+<script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+
 <script src="./script.js"></script>
